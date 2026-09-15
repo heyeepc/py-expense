@@ -10,7 +10,7 @@ expend = 0
 if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
     with open(file_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
-        if lines:  # 确保读出来的字符串不为空
+        if len(lines) >= 3:
             initial = int(lines[0].strip())
             expend = int(lines[1].strip())
             Income = int(lines[2].strip())
@@ -34,8 +34,7 @@ while True:
         Income += amount
 
     if amount < 0:
-        expend += amount
-        expend = abs(expend)
+        expend += abs(amount)
 
     initial= amount+ initial
 
