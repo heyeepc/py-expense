@@ -9,11 +9,11 @@ expend = 0
 
 if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
     with open(file_path, "r", encoding="utf-8") as f:
-        content = f.read().strip()
-        if content:  # 确保读出来的字符串不为空
-            initial = int(content)
-            expend = int(content)
-            Income = int(content)
+        lines = f.readlines()
+        if lines:  # 确保读出来的字符串不为空
+            initial = int(lines[0].strip())
+            expend = int(lines[1].strip())
+            Income = int(lines[2].strip())
 
 while True:
 
@@ -42,9 +42,9 @@ while True:
     print(f"现在的金额有{initial}")
 
 with open("number.txt", "w") as f:
-    f.write(str(initial))# 把数字转成字符串写入文件
-    f.write(str(expend))
-    f.write(str(Income))
+    f.write(f"{initial}\n")
+    f.write(f"{expend}\n")
+    f.write(f"{Income}\n")
 
 print(f"现在的总金额有{initial}")
 print(f"现在的总支出有{expend}")
