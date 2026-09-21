@@ -1,11 +1,11 @@
 [
     {
-        "initial": 0
+        "initial": 50
     },
     {
-        "Income": 0
+        "Income": 60
     },
     {
-        "expend": 0
+        "expend": 10
     }
 ]

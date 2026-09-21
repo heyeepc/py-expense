@@ -47,7 +47,11 @@ while True:
 
     print(f"现在的金额有{initial}")
 
-with open('number.json', 'w', encoding='utf-8') as f:
+data[0]["initial"] = initial
+data[1]["Income"] = Income
+data[2]["expend"] = expend
+
+with open(file_path, 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)
 
 
