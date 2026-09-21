@@ -1,19 +1,26 @@
 import sys
 import os
+import json
 
-file_path = "number.txt"
+
+
+file_path = "number.json"
+
 
 initial = 0
 Income = 0
 expend = 0
 
 if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
-    with open(file_path, "r", encoding="utf-8") as f:
-        lines = f.readlines()
-        if len(lines) >= 3:
-            initial = int(lines[0].strip())
-            expend = int(lines[1].strip())
-            Income = int(lines[2].strip())
+
+    with open('number.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+initial = data[0]["initial"]
+Income = data[1]["Income"]
+expend = data[2]["expend"]
+
+
 
 while True:
 
@@ -40,10 +47,9 @@ while True:
 
     print(f"现在的金额有{initial}")
 
-with open("number.txt", "w") as f:
-    f.write(f"{initial}\n")
-    f.write(f"{expend}\n")
-    f.write(f"{Income}\n")
+with open('number.json', 'r', encoding='utf-8') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
+
 
 print(f"现在的总金额有{initial}")
 print(f"现在的总支出有{expend}")
