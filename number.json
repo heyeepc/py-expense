@@ -1,11 +1,5 @@
-[
-    {
-        "initial": 50
-    },
-    {
-        "Income": 60
-    },
-    {
-        "expend": 10
-    }
-]
+{
+    "initial": 135,
+    "Income": 90,
+    "expend": 25
+}

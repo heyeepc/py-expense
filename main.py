@@ -16,9 +16,9 @@ if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
     with open('number.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
 
-    initial = data[0]["initial"]
-    Income = data[1]["Income"]
-    expend = data[2]["expend"]
+    initial = data.get("initial", 0)
+    Income = data.get("Income", 0)
+    expend = data.get("expend", 0)
 
 
 
@@ -47,9 +47,9 @@ while True:
 
     print(f"现在的金额有{initial}")
 
-data[0]["initial"] = initial
-data[1]["Income"] = Income
-data[2]["expend"] = expend
+data["initial"] = initial
+data["Income"] = Income
+data["expend"] = expend
 
 with open(file_path, 'w', encoding='utf-8') as f:
     json.dump(data, f, ensure_ascii=False, indent=4)
