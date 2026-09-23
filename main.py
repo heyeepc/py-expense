@@ -7,18 +7,24 @@ import json
 file_path = "number.json"
 
 
-initial = 0
-Income = 0
-expend = 0
+def load_data(file_path):
 
-if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
+    if os.path.exists(file_path) and os.path.getsize(file_path) > 0:
 
-    with open('number.json', 'r', encoding='utf-8') as f:
-        data = json.load(f)
+        with open('number.json', 'r', encoding='utf-8') as f:
+            data = json.load(f)
 
-    initial = data.get("initial", 0)
-    Income = data.get("Income", 0)
-    expend = data.get("expend", 0)
+        initial = data.get("initial", 0)
+        Income = data.get("Income", 0)
+        expend = data.get("expend", 0)
+
+        return data
+
+    else:
+
+        initial = 0
+        Income = 0
+        expend = 0
 
 
 
@@ -31,7 +37,7 @@ while True:
         break
 
     try:
-        amount = int(user_input)
+        amount = float(user_input)
     except ValueError:
         print("输入无效，请输入合法的整数数字！")
         continue
