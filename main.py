@@ -14,9 +14,7 @@ def load_data(file_path):
         with open('number.json', 'r', encoding='utf-8') as f:
             data = json.load(f)
 
-        initial = data.get("initial", 0)
-        Income = data.get("Income", 0)
-        expend = data.get("expend", 0)
+
 
         return data
 
@@ -26,6 +24,10 @@ def load_data(file_path):
         Income = 0
         expend = 0
 
+
+initial = load_data(file_path)
+Income = load_data(file_path)
+expend = load_data(file_path)
 
 
 while True:
